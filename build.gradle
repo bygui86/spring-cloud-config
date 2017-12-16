@@ -1,0 +1,79 @@
+
+// *** Spring CloudConfig root project ***
+
+
+// All project configs
+allprojects {
+
+	apply plugin: "eclipse"
+	
+	
+	repositories {
+		mavenCentral()
+		
+		// For Spring Boot release candidates / milestones
+		// maven { url "https://repo.spring.io/snapshot" }
+		// maven { url "https://repo.spring.io/milestone" }
+	}
+}
+
+
+// Subprojects configs
+subprojects {
+
+	buildscript {
+		ext {
+			// springBootVersion = "2.0.0.M3"
+			springBootVersion = "1.5.7.RELEASE"
+			springGradleDepManVersion="1.0.3.RELEASE"
+			// springCloudVersion = "2.0.0.M2" // compiling but not starting
+			// springCloudVersion = "1.4.0.M1" // decryption NOT-WORKING
+			// springCloudVersion = "1.3.2.RELEASE" // decryption NOT-WORKING
+			springCloudVersion = "1.3.1.RELEASE" // decryption working
+			lombokVersion="1.16.18"
+		}
+		
+		repositories {
+			mavenCentral()
+		
+			// For Spring Boot release candidates / milestones
+			// maven { url "https://repo.spring.io/snapshot" }
+			// maven { url "https://repo.spring.io/milestone" }
+		}
+		
+		dependencies {
+			classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+			
+			// For Spring Boot release candidates / milestones
+			// classpath("io.spring.gradle:dependency-management-plugin:${springGradleDepManVersion}")
+		}
+	}
+
+	apply plugin: "java"
+	// apply plugin: "application"
+
+	// Java 8
+	sourceCompatibility = JavaVersion.VERSION_1_8
+	targetCompatibility = JavaVersion.VERSION_1_8
+
+
+	dependencies {
+
+		// Spring DevTools (Boot)
+		compile("org.springframework.boot:spring-boot-starter")
+		runtime("org.springframework.boot:spring-boot-devtools")
+
+		// Spring Web (including REST)
+		compile("org.springframework.boot:spring-boot-starter-web")
+		
+
+		// Lombok
+		compileOnly("org.projectlombok:lombok:${lombokVersion}")
+
+
+		// Testing
+		testCompile("org.springframework.boot:spring-boot-starter-test")
+		testCompileOnly("org.projectlombok:lombok:${lombokVersion}")
+		testCompile("org.springframework.security:spring-security-test")
+	}
+}

@@ -1,0 +1,24 @@
+
+// *** Spring CloudConfig subproject: SERVER ***
+
+
+apply plugin: "org.springframework.boot"
+// For Spring Boot release candidates / milestones
+apply plugin: "io.spring.dependency-management"
+
+
+jar {
+	baseName = "rs-springcloudserver"
+	version = "0.1"
+}
+
+
+dependencies {
+
+	// Other subprojects in the same macro-project
+	// compile project(":<PROJECT_NAME>")
+
+
+	// Spring Cloud-Config - Server
+	compile("org.springframework.cloud:spring-cloud-config-server:${springCloudVersion}")
+}

@@ -1,0 +1,33 @@
+
+---[ RS - SpringCloudConfig - Links ]---
+
+
+---[ Theory
+
+DONE
+https://guides.gradle.org/creating-multi-project-builds/
+https://fernandoabcampos.wordpress.com/2016/03/16/config-server/
+http://www.baeldung.com/spring-cloud-configuration
+https://cloud.spring.io/spring-cloud-config/multi/multi__spring_cloud_config_server.html
+http://cloud.spring.io/spring-cloud-static/spring-cloud-config/1.2.0.RELEASE/#_encryption_and_decryption
+
+IN PROGRESS
+-
+
+TODO
+-
+
+
+---[ Frameworks/Platforms
+
+-
+
+
+---[ Code
+
+-
+
+
+---[ Repo
+
+https://github.com/eugenp/tutorials/tree/master/spring-cloud/spring-cloud-config

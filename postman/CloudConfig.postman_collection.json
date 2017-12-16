@@ -1,0 +1,540 @@
+{
+	"variables": [],
+	"info": {
+		"name": "RABBITSHOP__CloudConfig",
+		"_postman_id": "3cdab5c8-232c-d660-41d9-7c996e51889c",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Server",
+			"description": "",
+			"item": [
+				{
+					"name": "URL Mappings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"",
+									"tests[\"200 OK\"] = responseCode.code === 200;",
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"",
+									"// User",
+									"pm.globals.set(\"client_id\", \"rabbitshop\");",
+									"pm.globals.set(\"client_secret\", \"pohstibbar\");",
+									"",
+									"// Config set",
+									"pm.globals.set(\"application\", \"config-client\");",
+									"pm.globals.set(\"profile\", \"development\");",
+									"pm.globals.set(\"label\", \"master\");",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://localhost:8888/mappings",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic cmFiYml0c2hvcDpwb2hzdGliYmFy",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get configs",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"",
+									"tests[\"200 OK\"] = responseCode.code === 200;",
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"",
+									"// User",
+									"pm.globals.set(\"client_id\", \"rabbitshop\");",
+									"pm.globals.set(\"client_secret\", \"pohstibbar\");",
+									"",
+									"// Config set",
+									"pm.globals.set(\"application\", \"cloudclient\");",
+									"pm.globals.set(\"profile\", \"development\");",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://localhost:8888/{{application}}/{{profile}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic cmFiYml0c2hvcDpwb2hzdGliYmFy",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get configs by label",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"",
+									"tests[\"200 OK\"] = responseCode.code === 200;",
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"",
+									"// User",
+									"pm.globals.set(\"client_id\", \"rabbitshop\");",
+									"pm.globals.set(\"client_secret\", \"pohstibbar\");",
+									"",
+									"// Config set",
+									"pm.globals.set(\"application\", \"cloudclient\");",
+									"pm.globals.set(\"profile\", \"development\");",
+									"pm.globals.set(\"label\", \"master\");",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://localhost:8888/{{application}}/{{profile}}/{{label}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic cmFiYml0c2hvcDpwb2hzdGliYmFy",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get configs FORMAT",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"",
+									"tests[\"200 OK\"] = responseCode.code === 200;",
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"",
+									"// User",
+									"pm.globals.set(\"client_id\", \"rabbitshop\");",
+									"pm.globals.set(\"client_secret\", \"pohstibbar\");",
+									"",
+									"// Config set",
+									"pm.globals.set(\"application\", \"cloudclient\");",
+									"pm.globals.set(\"profile\", \"development\");",
+									"",
+									"// Config set format",
+									"// pm.globals.set(\"format\", \"yml\");",
+									"pm.globals.set(\"format\", \"properties\");",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://localhost:8888/{{application}}-{{profile}}.{{format}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic cmFiYml0c2hvcDpwb2hzdGliYmFy",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get configs FORMAT by label",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"",
+									"tests[\"200 OK\"] = responseCode.code === 200;",
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"",
+									"// User",
+									"pm.globals.set(\"client_id\", \"rabbitshop\");",
+									"pm.globals.set(\"client_secret\", \"pohstibbar\");",
+									"",
+									"// Config set",
+									"pm.globals.set(\"application\", \"cloudclient\");",
+									"pm.globals.set(\"profile\", \"development\");",
+									"pm.globals.set(\"label\", \"master\");",
+									"",
+									"// Config set format",
+									"// pm.globals.set(\"format\", \"yml\");",
+									"pm.globals.set(\"format\", \"properties\");",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://localhost:8888/{{label}}/{{application}}-{{profile}}.{{format}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic cmFiYml0c2hvcDpwb2hzdGliYmFy",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"",
+									"tests[\"200 OK\"] = responseCode.code === 200;",
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"",
+									"// User",
+									"pm.globals.set(\"client_id\", \"rabbitshop\");",
+									"pm.globals.set(\"client_secret\", \"pohstibbar\");",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://localhost:8888/refresh",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic cmFiYml0c2hvcDpwb2hzdGliYmFy",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Health",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"",
+									"tests[\"200 OK\"] = responseCode.code === 200;",
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"",
+									"// User",
+									"pm.globals.set(\"client_id\", \"rabbitshop\");",
+									"pm.globals.set(\"client_secret\", \"pohstibbar\");",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://localhost:8888/health",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic cmFiYml0c2hvcDpwb2hzdGliYmFy",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Encrypt",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"",
+									"tests[\"200 OK\"] = responseCode.code === 200;",
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"",
+									"// User",
+									"pm.globals.set(\"client_id\", \"rabbitshop\");",
+									"pm.globals.set(\"client_secret\", \"pohstibbar\");",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://@localhost:8888/encrypt",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/plain",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic cmFiYml0c2hvcDpwb2hzdGliYmFy",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "test-password"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Decrypt",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"",
+									"tests[\"200 OK\"] = responseCode.code === 200;",
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"",
+									"// User",
+									"pm.globals.set(\"client_id\", \"rabbitshop\");",
+									"pm.globals.set(\"client_secret\", \"pohstibbar\");",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://@localhost:8888/decrypt",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/plain",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic cmFiYml0c2hvcDpwb2hzdGliYmFy",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "AgBTJeqVRPlE/YOz/7njUg5ztdedADPTycu74ZQkl4900KN97XIN89B/zQ+Li1YZ/FuUBe+BRFnA5K2ZigW9q8iFICTR3EbGPYq1e7WrHDXa3Mjgrv6XxlvsGyu+Um3aclrxOgxrPkn9J9hb2FW8+/2n2SvPZT+Ij20ihyGM5gjAROBJAWCERleGinnRKcOKJNuF1OioyTjFDFO5Ibt3LqFDdw0Qq2TksZGbsdmXCo0FkNZkF9yXN9o8WlhYOjbgAXNOde4MlpZ3x/987KQ9BO6dc/o111yVHSZhMDLnRHOR4VSy1LntrDJS5RSBnqKAwnKClblQe//lUyT9U0BdZwLjMhmJp2aYcQQ1q+SHd/vO93RdQfTecN3LMYobzBCMlMtiLYWMJOmG61y8p43knJh7kABRqlPYXZbtCNcOUmnwECcMc1Pm6GO4o/hqx4Ecg0Pi9lnkJnbhMEZkmfUZNU5Op3H1Mw/Wo0tMeFMCbeXJK16YatYffstUKDMona9FI06gNGLI0SEDuAQD1bkFym5oaL5CBUtSj4w696I1Akjj+xLAAeiYkKDQpgkdt6za0oEwuYDCT1shlUk1DPWwzJkBcWXu8Wd+Htrd7AStMRHIrzwCku4MlxpfwBW+d0ZpnxZYvYn1qm86m9EEPWI+d9so+0N4AJiZ1kaqVw9AMDarhnfJyXraPMyG08cd5rN64JrOiTwJEy0YSIjjTgcYBBL9"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Client",
+			"description": "",
+			"item": [
+				{
+					"name": "Get role",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"",
+									"tests[\"200 OK\"] = responseCode.code === 200;",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://localhost:8080/users/role",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get password",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"",
+									"tests[\"200 OK\"] = responseCode.code === 200;",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://localhost:8080/users/password",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

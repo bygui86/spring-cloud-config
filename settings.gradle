@@ -1,0 +1,9 @@
+
+// *** Spring CloudConfig root project ***
+
+// Root project
+rootProject.name = "springcloudconfig"
+
+// Subprojects
+include "springcloudserver"
+include "springcloudclient"

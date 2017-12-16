@@ -1,0 +1,20 @@
+
+// *** Spring CloudConfig subproject: CLIENT ***
+
+
+apply plugin: "org.springframework.boot"
+// For Spring Boot release candidates / milestones
+apply plugin: "io.spring.dependency-management"
+
+
+jar {
+	baseName = "rs-springcloudclient"
+	version = "0.1"
+}
+
+
+dependencies {
+
+	// Spring Cloud-Config - Client
+	compile("org.springframework.cloud:spring-cloud-starter-config:${springCloudVersion}")
+}
